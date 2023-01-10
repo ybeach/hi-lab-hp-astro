@@ -1,0 +1,12 @@
+---
+import Layout from "../layouts/MainLayout.astro";
+import {Content, frontmatter} from '../contents/about.md'
+---
+<Layout title="Datasets">
+  <div>
+  <h2>{frontmatter.title}</h2>
+  <article class="prose lg:prose-xl">
+    <Content />
+  </article>
+</div>
+</Layout>
