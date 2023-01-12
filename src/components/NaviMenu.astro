@@ -1,30 +1,8 @@
 ---
-// class="menu menu-horizontal px-1"
+import navList from "../json/nav_menu.json"
 ---
 <>
-  <li><a href="/datasets">データセット</a></li>
-  <li><a href="/services">サービス</a></li>
-  <li><a href="/utils">ユーティリティー</a></li>
-  <li><a href="/references">レファレンス</a></li>
-  <li><a href="/usages">利用</a></li>
-  <li><a href="/about">アバウト</a></li>
-
-  <!-- <li tabindex="0">
-    <a class="justify-between">
-      Parent
-      <svg
-        class="fill-current"
-        xmlns="http://www.w3.org/2000/svg"
-        width="24"
-        height="24"
-        viewBox="0 0 24 24"
-        ><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"
-        ></path></svg
-      >
-    </a>
-    <ul class="p-2">
-      <li><a>Submenu 1</a></li>
-      <li><a>Submenu 2</a></li>
-    </ul>
-  </li> -->
+{navList.map((item)=> (
+  <li><a href={item.url}>{item.title}</a></li>
+))}
 </>

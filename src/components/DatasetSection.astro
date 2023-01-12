@@ -1,14 +1,18 @@
 ---
 import datasets from "../json/datasets_on_homepage.json";
+// TODO: get list from glob
+
 ---
 
 <div class="hero bg-base-100 min-h-screen mx-auto max-w-full">
-  <div class="hero-content">
+  <div class="hero-content flex flex-col">
     <div class="flex flex-col px-4 mt-32">
       <div class="p-5 flex flex-col">
         <h2 class="text-5xl md:text-6xl px-4">データセット</h2>
-        <p class="px-5 text-base">desc</p>
+        <p class="px-5 text-base">公開データセット</p>
       </div>
+
+      <!-- list -->
       <div class="flex flex-row gap-3">
         {
           datasets.map((dataset) => {
@@ -29,8 +33,9 @@ import datasets from "../json/datasets_on_homepage.json";
           })
         }
       </div>
-
-      <div class="text-base-content text-right">more</div>
+    </div>
+    <div class="text-base-content text-right py-10">
+      <a href="/datasets" class="btn btn-primary w-full">すべてのデータセット</a>
     </div>
   </div>
 </div>

@@ -1,7 +1,15 @@
+---
+const { path = [] } = Astro.props;
+---
+
 <div class="text-sm breadcrumbs">
   <ul>
-    <li><a>Home</a></li> 
-    <li><a>Documents</a></li> 
-    <li>Add Document</li>
+    {
+      path.map((item) => (
+        <li>
+          <a href={item.url}>{item.name}</a>
+        </li>
+      ))
+    }
   </ul>
 </div>

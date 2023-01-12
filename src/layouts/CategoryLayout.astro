@@ -1,0 +1,103 @@
+---
+import BaseLayout from "./BaseLayout.astro";
+import BreadCrumbs from "../components/BreadCrumbs.astro";
+
+export interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+
+const currentPath = Astro.url.pathname;
+const currentCategory = currentPath.split("/")[1];
+const currentFile = currentPath.split("/")[2];
+
+// cause stupid vite
+// https://stackoverflow.com/questions/72077023/import-meta-glob-can-only-accept-string-literals
+let fileList;
+let currentCategoryName;
+switch (currentCategory) {
+  case "news":
+    fileList = await Astro.glob("../pages/news/*.md");
+    currentCategoryName = "お知らせ";
+    break;
+  case "datasets":
+    fileList = await Astro.glob("../pages/datasets/*.md");
+    currentCategoryName = "データセット";
+    break;
+  case "services":
+    fileList = await Astro.glob("../pages/services/*.md");
+    currentCategoryName = "サービス";
+    break;
+  case "utils":
+    fileList = await Astro.glob("../pages/utils/*.md");
+    currentCategoryName = "ユーティリティー";
+    break;
+  case "usages":
+    fileList = await Astro.glob("../pages/usages/*.md");
+    currentCategoryName = "利用例";
+    break;
+}
+
+const path = [
+  {
+    name: "ホーム",
+    url: "/",
+  },
+  {
+    name: currentCategoryName,
+    url: "/" + currentCategory,
+  },
+];
+---
+
+<BaseLayout title={title}>
+  <div class="py-16 px-4 font-bold bg-base-100">
+    <h2 class="text-primary text-4xl md:text-6xl">{title}</h2>
+  </div>
+
+  <div class="flex flex-row">
+    <label for="side-drawer" class="btn btn-primary drawer-button lg:hidden"
+      >ページ内リスト</label
+    >
+    <div class="bg-base-100 w-full px-4 py-2">
+      <BreadCrumbs path={path} />
+    </div>
+  </div>
+
+  <div class="drawer drawer-mobile pt-4 pb-16">
+    <input id="side-drawer" type="checkbox" class="drawer-toggle" />
+
+    <div class="drawer-content flex flex-col">
+      <div class="px-6">
+        <slot />
+      </div>
+    </div>
+
+    <div class="drawer-side">
+      <label for="side-drawer" class="drawer-overlay"></label>
+      <ul class="menu p-4 w-80 gap-2 bg-base-200 text-base-content">
+        <li>
+          <a
+            href={"/" + currentCategory}
+            class={title == currentCategoryName ? "text-white bg-primary" : ""}
+            >すべて</a>
+        </li>
+        {
+          fileList.map((item) => (
+            <li>
+              <a
+                href={item.url}
+                class={
+                  title == item.frontmatter.title ? "text-white bg-primary" : ""
+                }
+              >
+                {item.frontmatter.title}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </div>
+</BaseLayout>

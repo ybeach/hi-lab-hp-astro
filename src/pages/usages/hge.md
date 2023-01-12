@@ -1,8 +1,8 @@
 ---
 layout: ../../layouts/PageLayout.astro
-title: "YAIST"
-image: ./images/screenshot_yaist.png
+title: "HGE"
+image: ./images/no_image.png
 date: 2023-01-12
-
 ---
-asdfasfasd
+
+lorem

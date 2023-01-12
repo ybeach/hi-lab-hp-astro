@@ -1,0 +1,35 @@
+---
+const news = await Astro.glob("../pages/news/*.md");
+// sorting by date
+news.sort(
+  (a, b) => Date.parse(b.frontmatter.date) - Date.parse(a.frontmatter.date)
+);
+---
+
+<div class="hero h-full bg-base-200">
+  <div class="hero-content flex-col lg:flex-row">
+    <div>
+      <div class="mt-10 mb-20 flex flex-col lg:flex-row">
+        <div class="flex min-w-1/4 flex-col text-left">
+          <h3 class="text-2xl font-bold">最新のお知らせ</h3>
+        </div>
+        <div class="divider lg:divider-horizontal"></div>
+        <div class="flex-1 w-full flex-col text-left">
+          <ul>
+            {
+              news.map((item) => (
+                <li>
+                  <h5 class="text-3xl">{item.frontmatter.title}</h5>
+                  <h6 class="text-xl">{item.frontmatter.date}</h6>
+                  <article class="prose" set:html={item.compiledContent()}>
+                  </article>
+                </li>
+                <div class=" divider"></div>
+              ))
+            }
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

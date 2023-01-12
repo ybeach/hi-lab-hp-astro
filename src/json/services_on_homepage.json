@@ -1,25 +1,25 @@
 [
   {
-    "title": "花押データセット",
-    "url": "/datasets/kao",
+    "title": "SHIPS API",
+    "url": "/services/ships-api",
     "description": "公開予定",
     "image": "https://placeimg.com/640/480/arch"
   },
   {
-    "title": "くずし字データセット",
-    "url": "/datasets/kuzushiji",
+    "title": "GEO API",
+    "url": "/services/geo-api",
     "description": "公開予定",
     "image": "https://placeimg.com/640/480/arch"
   },
   {
-    "title": "所蔵史料画像ギャラリー",
-    "url": "/datasets/syozo-gallery",
+    "title": "DIP-S",
+    "url": "/services/dips",
     "description": "公開予定",
     "image": "https://placeimg.com/640/480/arch"
   },
   {
-    "title": "災害データセット",
-    "url": "/datasets/saigai",
+    "title": "YAIST",
+    "url": "/services/yaist",
     "description": "公開予定",
     "image": "https://placeimg.com/640/480/arch"
   }

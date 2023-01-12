@@ -1,9 +1,7 @@
 ---
-import PageLayout from "../layouts/PageLayout.astro";
+import ListLayout from "../layouts/ListLayout.astro";
+
+const all = await Astro.glob("../pages/services/*.md");
+const title="サービス"
 ---
-
-
-<PageLayout title="サービス">
-  <h2>Services</h2>
-</PageLayout>
-
+<ListLayout title={title} all={all} />

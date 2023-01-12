@@ -1,0 +1,36 @@
+---
+import CategoryLayout from "../layouts/CategoryLayout.astro";
+
+const {title, all}=Astro.props
+---
+
+<CategoryLayout title={title}>
+  <div class="px-6 xl:pr-2 pb-16 flex flex-col gap-6">
+    <div class="prose max-w-4xl flex-grow">
+      <h2>すべての{title}</h2>
+      <p>{all.length} {title}</p>
+    </div>
+    <div
+      class="not-prose grid grid-cols-1 gap-x-6 gap-y-12 sm:grid-cols-2 lg:grid-cols-3"
+    >
+      {
+        all.map((item) => (
+          <a href={item.url} class="card card-compact hover:bg-base-200 transition-all duration-200 hover:-translate-y-1">
+            <figure class="px-4 pt-4">
+              <img
+                src="/images/components/alert.jpg"
+                class="border-base-content bg-base-300 rounded-lg border border-opacity-5"
+                alt="Alert"
+              />
+              <img src={item.frontmatter.image} />
+            </figure>
+            <div class="card-body">
+              <h2 class="card-title">{item.frontmatter.title}</h2>
+            
+            </div>
+          </a>
+        ))
+      }
+    </div>
+  </div>
+</CategoryLayout>

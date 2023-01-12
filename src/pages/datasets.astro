@@ -1,15 +1,7 @@
 ---
-import Layout from "../layouts/MainLayout.astro";
-import PageLayout from "../layouts/PageLayout.astro";
+import ListLayout from "../layouts/ListLayout.astro";
+const all = await Astro.glob("../pages/datasets/*.md");
+const title="データセット"
 ---
 
-
-<PageLayout title="データセット">
-  <div>
-    <div>
-      <h2>datasets</h2>
-      <p>description</p>
-    </div>
-  </div>
-</PageLayout>
-
+<ListLayout title={title} all={all} />

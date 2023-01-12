@@ -1,9 +1,7 @@
 ---
-import Layout from "../layouts/MainLayout.astro";
+import ListLayout from "../layouts/ListLayout.astro";
+const all = await Astro.glob("../pages/usages/*.md");
+const title="利用例"
+
 ---
-
-
-<Layout title="Usages">
-  <h2>Usages</h2>
-</Layout>
-
+<ListLayout title={title} all={all} />

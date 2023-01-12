@@ -1,0 +1,30 @@
+[
+  {
+    "title": "お知らせ",
+    "url": "/news"
+  },
+  {
+    "title": "データセット",
+    "url": "/datasets"
+  },
+  {
+    "title": "サービス",
+    "url": "/services"
+  },
+  {
+    "title": "ユーティリティー",
+    "url": "/utils"
+  },
+  {
+    "title": "利用例",
+    "url": "/usages"
+  },
+  {
+    "title": "業績一覧",
+    "url": "/references"
+  },
+  {
+    "title": "アバウト",
+    "url": "/about"
+  }
+]

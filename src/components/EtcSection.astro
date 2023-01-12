@@ -1,4 +1,82 @@
 ---
-// class="menu menu-horizontal px-1"
+const data = {
+  ツール: {
+    url:"/utils",
+    list:[
+    {
+      title: "JDCat Python Lib",
+      url: "/",
+    },
+    {
+      title: "VSCode Plugins",
+      url: "/",
+    },
+  ],
+  },
+  利用例: {
+    url:"/usages",
+    list:[
+    // Kuzushiji: Jinmoncom 2022 HGE
+    {
+      title: "花押を対象としたデータ駆動型歴史情報学研究の実践",
+      url: "#",
+    },
+    {
+      title: "歴史資料・古典籍の字形探索",
+      url: "https://hge.lab.hi.u-tokyo.ac.jp/",
+    },
+  ],
+  },
+  参考文献: {
+    url:"/references",
+    list:[
+    {
+      title: "花押を対象としたデータ駆動型歴史情報学研究の実践",
+      url: "https://hge.lab.hi.u-tokyo.ac.jp/",
+    },
+    {
+      title: "JDCat Python Lib",
+      url: "/",
+    },
+  ],
+  }
+};
 ---
-<h2>etc</h2>
+
+<div
+  class="hero from-primary to-accent text-primary-content min-h-screen bg-gradient-to-br"
+>
+  <div class="hero-content mx-auto max-w-md text-center md:max-w-full">
+    <div>
+      <h2 class="mt-20 mb-2 text-4xl font-extrabold md:text-6xl">ほかのご提供</h2>
+      <h3 class="mb-5 text-3xl font-bold">データセット・サービス以外の公開データ</h3>
+      
+
+      <div
+        class="my-20 flex w-full flex-col space-y-2 md:flex-row md:space-y-0 md:space-x-2"
+      >
+        {
+          Object.keys(data).map((category) => (
+            <div class="card bg-base-100 text-base-content mx-auto w-full max-w-xs flex-1 p-8">
+              <h3 class="text-sm font-bold">{category}</h3>
+              <div class="mt-2 flex flex-col space-y-2 h-full">
+                <div class="grow">
+                  <ul class="menu">
+                  {data[category]["list"].map((item) => (
+                    <li>
+                      <a href={item.url}>{item.title}</a>
+                    </li>
+                  ))}
+                </ul>
+                </div>
+
+                <a href={data[category]["url"]} class="btn flex-none">すべての{category}</a>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+
+    </div>
+  </div>
+</div>

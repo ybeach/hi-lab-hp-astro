@@ -1,0 +1,15 @@
+---
+import CategoryLayout from "../layouts/CategoryLayout.astro";
+const all = await Astro.glob("../pages/news/*.md");
+---
+
+
+<CategoryLayout title="お知らせ">
+  <div class="px-6 xl:pr-2 pb-16">
+    <div>
+      <h2>お知らせ</h2>
+      <p>description</p>
+    </div>
+  </div>
+</CategoryLayout>
+

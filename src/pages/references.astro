@@ -1,9 +1,159 @@
 ---
-import Layout from "../layouts/MainLayout.astro";
+import BaseLayourt from "../layouts/BaseLayout.astro";
+
+const liu_response = await fetch(
+  "https://api.researchmap.jp/liuguanwei/published_papers"
+);
+const liu_data = await liu_response.json();
+
+const yamada_response = await fetch(
+  "https://api.researchmap.jp/j618/published_papers"
+);
+const yamada_data = await yamada_response.json();
+
+const nakamura_response = await fetch(
+  "https://api.researchmap.jp/nakamura.satoru/published_papers"
+);
+const nakamura_data = await nakamura_response.json();
 ---
 
+<BaseLayourt title="References">
+  <div class="py-16 px-4 font-bold bg-base-100">
+    <h2 class="text-primary text-4xl md:text-6xl">業績（論文）一覧</h2>
+  </div>
 
-<Layout title="References">
-  <h2>References</h2>
-</Layout>
+  <div class="py-16 px-4 font-bold bg-base-200 md:flex">
+    <div class="avatar">
+      <div class="w-24 rounded-xl">
+        <img src="https://researchmap.jp/j618/avatar.jpg" />
+      </div>
+    </div>
+    <div class="px-8" id="yamada">
+      <h4 class="text-secondary text-2xl md:text-4xl">山田　太造</h4>
+      <p class="text-base-content">准教授</p>
+      <p class="text-base-content">
+        researchmap: <a
+          href="https://researchmap.jp/j618"
+          class="link link-hover"
+          target="_blank">https://researchmap.jp/j618</a
+        >
+      </p>
+    </div>
+  </div>
 
+  <div class="mt-6 mb-10 overflow-x-auto">
+    {
+      yamada_data.items.map((item) => (
+        <p class="text-base-content">
+          <span class="font-bold">「{item.paper_title.ja || item.paper_title.en}」</span>、
+          {item.authors.ja ? item.authors.ja?.map((item2) => (
+            <>{item2.name}</>
+          )): item.authors.en?.map((item2) => (
+            <>{item2.name}</>
+          ))}
+          、『{item.publication_name.ja || item.publication_name.en}』
+          {item.volume && <>、Vol. {item.volume}</>}
+          {item.number && <>、No. {item.number}</>}
+          {item.starting_page && (
+            <>
+              、pp. {item.starting_page}-{item.ending_page}
+            </>
+          )}
+          {item.publication_date && <>、 {item.publication_date}</>}
+        </p>
+      ))
+    }
+  </div>
+
+  <div class="py-16 px-4 font-bold bg-base-200 md:flex" id="nakamura">
+    <div class="avatar">
+      <div class="w-24 rounded-xl">
+        <img src="https://researchmap.jp/nakamura.satoru/avatar.jpeg" />
+      </div>
+    </div>
+    <div class="px-8">
+      <h4 class="text-secondary text-2xl md:text-4xl">中村　覚</h4>
+      <p class="text-base-content">助教</p>
+      <p class="text-base-content">
+        researchmap: <a
+          href="https://researchmap.jp/nakamura.satoru"
+          class="link link-hover"
+          target="_blank">https://researchmap.jp/nakamura.satoru</a
+        >
+      </p>
+    </div>
+  </div>
+
+  <div class="mt-6 mb-10 overflow-x-auto">
+    {
+      nakamura_data.items.map((item) => (
+        <p class="text-base-content">
+          <span class="font-bold">「{item.paper_title.ja || item.paper_title.en}」</span>、
+          {item.authors.ja ? item.authors.ja?.map((item2) => (
+            <>{item2.name}</>
+          )): item.authors.en?.map((item2) => (
+            <>{item2.name}</>
+          ))}
+          、『{item.publication_name?.ja || item.publication_name?.en}』
+          {item.volume && <>、Vol. {item.volume}</>}
+          {item.number && <>、No. {item.number}</>}
+          {item.starting_page && (
+            <>
+              、pp. {item.starting_page}-{item.ending_page}
+            </>
+          )}
+          {item.publication_date && <>、 {item.publication_date}</>}
+        </p>
+      ))
+    }
+  </div>
+  
+
+  <div class="py-16 px-4 font-bold bg-base-200 md:flex" id="liu">
+    <div class="avatar">
+      <div class="w-24 rounded-xl">
+        <img src="https://researchmap.jp/liuguanwei/avatar.JPG" />
+      </div>
+    </div>
+    <div class="px-8">
+      <h4 class="text-secondary text-2xl md:text-4xl">劉　冠偉</h4>
+      <p class="text-base-content">特任研究員</p>
+      <p class="text-base-content">
+        researchmap: <a
+          href="https://researchmap.jp/liuguanwei"
+          class="link link-hover"
+          target="_blank">https://researchmap.jp/liuguanwei</a
+        >
+      </p>
+      <p class="text-base-content">
+        Twitter: <a
+          href="https://twitter.com/toyjack"
+          class="link link-hover"
+          target="_blank">@toyjack</a
+        >
+      </p>
+    </div>
+  </div>
+
+  <div class="mt-6 mb-10 overflow-x-auto">
+    {
+      liu_data.items.map((item) => (
+        <p class="text-base-content">
+          <span class="font-bold">「{item.paper_title?.ja}」</span>、
+          {item.authors.ja?.map((item2) => (
+            <>{item2.name}</>
+          ))}
+          、『{item.publication_name.ja}』
+          {item.volume && <>、Vol. {item.volume}</>}
+          {item.number && <>、No. {item.number}</>}
+          {item.starting_page && (
+            <>
+              、pp. {item.starting_page}-{item.ending_page}
+            </>
+          )}
+          {item.publication_date && <>、 {item.publication_date}</>}
+        </p>
+      ))
+    }
+  </div>
+</BaseLayourt>
