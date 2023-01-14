@@ -1,6 +1,7 @@
 ---
 import BaseLayourt from "../layouts/BaseLayout.astro";
 import BreadCrumbs from "../components/BreadCrumbs.astro";
+import PeopleCard from "../components/PeopleCard.astro";
 
 const title = "業績（論文）一覧";
 const path = [
@@ -40,24 +41,7 @@ const nakamura_data = await nakamura_response.json();
     </aside>
 
     <div class="block">
-      <div class="py-16 px-4 font-bold bg-base-200 md:flex">
-        <div class="avatar">
-          <div class="w-24 rounded-xl">
-            <img src="https://researchmap.jp/j618/avatar.jpg" />
-          </div>
-        </div>
-        <div class="px-8" id="yamada">
-          <h4 class="text-secondary text-2xl md:text-4xl">山田　太造</h4>
-          <p class="text-base-content">准教授</p>
-          <p class="text-base-content">
-            researchmap: <a
-              href="https://researchmap.jp/j618"
-              class="link link-hover"
-              target="_blank">https://researchmap.jp/j618</a
-            >
-          </p>
-        </div>
-      </div>
+      <PeopleCard name="山田 太造" position="准教授" researchmap_url="https://researchmap.jp/j618" id="yamada" />
 
       <div class="mt-6 mb-10 overflow-x-auto">
         {
@@ -84,24 +68,7 @@ const nakamura_data = await nakamura_response.json();
         }
       </div>
 
-      <div class="py-16 px-4 font-bold bg-base-200 md:flex" id="nakamura">
-        <div class="avatar">
-          <div class="w-24 rounded-xl">
-            <img src="https://researchmap.jp/nakamura.satoru/avatar.jpeg" />
-          </div>
-        </div>
-        <div class="px-8">
-          <h4 class="text-secondary text-2xl md:text-4xl">中村　覚</h4>
-          <p class="text-base-content">助教</p>
-          <p class="text-base-content">
-            researchmap: <a
-              href="https://researchmap.jp/nakamura.satoru"
-              class="link link-hover"
-              target="_blank">https://researchmap.jp/nakamura.satoru</a
-            >
-          </p>
-        </div>
-      </div>
+      <PeopleCard name="中村 覚" position="助教" researchmap_url="https://researchmap.jp/nakamura.satoru" id="nakamura" />
 
       <div class="mt-6 mb-10 overflow-x-auto">
         {
@@ -128,31 +95,7 @@ const nakamura_data = await nakamura_response.json();
         }
       </div>
 
-      <div class="py-16 px-4 font-bold bg-base-200 md:flex" id="liu">
-        <div class="avatar">
-          <div class="w-24 rounded-xl">
-            <img src="https://researchmap.jp/liuguanwei/avatar.JPG" />
-          </div>
-        </div>
-        <div class="px-8">
-          <h4 class="text-secondary text-2xl md:text-4xl">劉　冠偉</h4>
-          <p class="text-base-content">特任研究員</p>
-          <p class="text-base-content">
-            researchmap: <a
-              href="https://researchmap.jp/liuguanwei"
-              class="link link-hover"
-              target="_blank">https://researchmap.jp/liuguanwei</a
-            >
-          </p>
-          <p class="text-base-content">
-            Twitter: <a
-              href="https://twitter.com/toyjack"
-              class="link link-hover"
-              target="_blank">@toyjack</a
-            >
-          </p>
-        </div>
-      </div>
+      <PeopleCard name="劉 冠偉" position="特任研究員" researchmap_url="https://researchmap.jp/liuguanwei" twitter_account="toyjack" id="liu" />
 
       <div class="mt-6 mb-10 overflow-x-auto">
         {
