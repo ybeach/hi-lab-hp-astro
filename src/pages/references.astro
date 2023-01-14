@@ -2,27 +2,13 @@
 import BaseLayourt from "../layouts/BaseLayout.astro";
 import BreadCrumbs from "../components/BreadCrumbs.astro";
 import PeopleCard from "../components/PeopleCard.astro";
+import PaperList from "../components/PaperList.astro";
 
 const title = "業績（論文）一覧";
 const path = [
   { name: "ホーム", href: "/" },
   { name: title, href: "/eferences" },
 ];
-
-const liu_response = await fetch(
-  "https://api.researchmap.jp/liuguanwei/published_papers"
-);
-const liu_data = await liu_response.json();
-
-const yamada_response = await fetch(
-  "https://api.researchmap.jp/j618/published_papers"
-);
-const yamada_data = await yamada_response.json();
-
-const nakamura_response = await fetch(
-  "https://api.researchmap.jp/nakamura.satoru/published_papers"
-);
-const nakamura_data = await nakamura_response.json();
 ---
 
 <BaseLayourt title="References">
@@ -42,82 +28,13 @@ const nakamura_data = await nakamura_response.json();
 
     <div class="block">
       <PeopleCard name="山田 太造" position="准教授" researchmap_url="https://researchmap.jp/j618" id="yamada" />
-
-      <div class="mt-6 mb-10 overflow-x-auto">
-        {
-          yamada_data.items.map((item) => (
-            <p class="text-base-content">
-              <span class="font-bold">
-                「{item.paper_title.ja || item.paper_title.en}」
-              </span>
-              、
-              {item.authors.ja
-                ? item.authors.ja?.map((item2) => <>{item2.name}</>)
-                : item.authors.en?.map((item2) => <>{item2.name}</>)}
-              、『{item.publication_name.ja || item.publication_name.en}』
-              {item.volume && <>、Vol. {item.volume}</>}
-              {item.number && <>、No. {item.number}</>}
-              {item.starting_page && (
-                <>
-                  、pp. {item.starting_page}-{item.ending_page}
-                </>
-              )}
-              {item.publication_date && <>、 {item.publication_date}</>}
-            </p>
-          ))
-        }
-      </div>
+      <PaperList researchmapAccount="j618" />
 
       <PeopleCard name="中村 覚" position="助教" researchmap_url="https://researchmap.jp/nakamura.satoru" id="nakamura" />
-
-      <div class="mt-6 mb-10 overflow-x-auto">
-        {
-          nakamura_data.items.map((item) => (
-            <p class="text-base-content">
-              <span class="font-bold">
-                「{item.paper_title.ja || item.paper_title.en}」
-              </span>
-              、
-              {item.authors.ja
-                ? item.authors.ja?.map((item2) => <>{item2.name}</>)
-                : item.authors.en?.map((item2) => <>{item2.name}</>)}
-              、『{item.publication_name?.ja || item.publication_name?.en}』
-              {item.volume && <>、Vol. {item.volume}</>}
-              {item.number && <>、No. {item.number}</>}
-              {item.starting_page && (
-                <>
-                  、pp. {item.starting_page}-{item.ending_page}
-                </>
-              )}
-              {item.publication_date && <>、 {item.publication_date}</>}
-            </p>
-          ))
-        }
-      </div>
+      <PaperList researchmapAccount="nakamura.satoru" />
 
       <PeopleCard name="劉 冠偉" position="特任研究員" researchmap_url="https://researchmap.jp/liuguanwei" twitter_account="toyjack" id="liu" />
-
-      <div class="mt-6 mb-10 overflow-x-auto">
-        {
-          liu_data.items.map((item) => (
-            <p class="text-base-content">
-              <span class="font-bold">「{item.paper_title?.ja}」</span>、
-              {item.authors.ja?.map((item2) => (
-                <>{item2.name}</>
-              ))}
-              、『{item.publication_name.ja}』
-              {item.volume && <>、Vol. {item.volume}</>}
-              {item.number && <>、No. {item.number}</>}
-              {item.starting_page && (
-                <>
-                  、pp. {item.starting_page}-{item.ending_page}
-                </>
-              )}
-              {item.publication_date && <>、 {item.publication_date}</>}
-            </p>
-          ))
-        }
-      </div>
+      <PaperList researchmapAccount="liuguanwei" />
     </div>
   </div>
 </BaseLayourt>
