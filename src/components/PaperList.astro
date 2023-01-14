@@ -1,7 +1,7 @@
 ---
-const { researchmapAccount } = Astro.props;
+const { researchmap_account } = Astro.props;
 
-const url = `https://api.researchmap.jp/${researchmapAccount}/published_papers`;
+const url = `https://api.researchmap.jp/${researchmap_account}/published_papers`;
 const response = await fetch(url);
 const data = await response.json();
 ---
@@ -15,7 +15,7 @@ const data = await response.json();
         </span>
         、
         {item.authors.ja
-          ? item.authors.ja?.map((item2) => item2.name).join('・')
+          ? item.authors.ja?.map((item2) => item2.name.replace(',','').replace(/\s/,'')).join('・')
           : item.authors.en?.map((item2) => item2.name).join('・')}
         、
         『{item.publication_name?.ja || item.publication_name?.en}』

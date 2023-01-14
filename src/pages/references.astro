@@ -6,8 +6,8 @@ import PaperList from "../components/PaperList.astro";
 
 const title = "業績（論文）一覧";
 const path = [
-  { name: "ホーム", href: "/" },
-  { name: title, href: "/eferences" },
+  { name: "ホーム", url: "/" },
+  { name: title, url: "/references" },
 ];
 ---
 
@@ -27,14 +27,14 @@ const path = [
     </aside>
 
     <div class="block">
-      <PeopleCard name="山田 太造" position="准教授" researchmap_url="https://researchmap.jp/j618" id="yamada" />
-      <PaperList researchmapAccount="j618" />
+      <PeopleCard name="山田 太造" position="准教授" researchmap_account="j618" id="yamada" />
+      <PaperList researchmap_account="j618" />
 
-      <PeopleCard name="中村 覚" position="助教" researchmap_url="https://researchmap.jp/nakamura.satoru" id="nakamura" />
-      <PaperList researchmapAccount="nakamura.satoru" />
+      <PeopleCard name="中村 覚" position="助教" researchmap_account="nakamura.satoru" id="nakamura" />
+      <PaperList researchmap_account="nakamura.satoru" />
 
-      <PeopleCard name="劉 冠偉" position="特任研究員" researchmap_url="https://researchmap.jp/liuguanwei" twitter_account="toyjack" id="liu" />
-      <PaperList researchmapAccount="liuguanwei" />
+      <PeopleCard name="劉 冠偉" position="特任研究員" researchmap_account="liuguanwei" twitter_account="toyjack" id="liu" />
+      <PaperList researchmap_account="liuguanwei" />
     </div>
   </div>
 </BaseLayourt>
