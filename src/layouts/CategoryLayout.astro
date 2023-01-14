@@ -37,6 +37,10 @@ switch (currentCategory) {
     fileList = await Astro.glob("../pages/usages/*.md");
     currentCategoryName = "利用例";
     break;
+  case "references":
+    fileList = await Astro.glob("../pages/usages/*.md");
+    currentCategoryName = "業績（論文）一覧";
+    break;
 }
 
 const path = [
