@@ -1,9 +1,9 @@
 ---
 layout: ../../layouts/PageLayout.astro
-title: DIP-Sデジタルギャラリー
+title: new
 image: ./images/no_image.png
 date: 2023-01-12
 ---
-DIP-Sデジタルギャラリー
+new
 
 hi!!!

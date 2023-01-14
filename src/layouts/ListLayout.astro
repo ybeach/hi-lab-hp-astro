@@ -17,12 +17,7 @@ const {title, all}=Astro.props
         all.map((item) => (
           <a href={item.url} class="card card-compact hover:bg-base-200 transition-all duration-200 hover:-translate-y-1">
             <figure class="px-4 pt-4">
-              <img
-                src="/images/components/alert.jpg"
-                class="border-base-content bg-base-300 rounded-lg border border-opacity-5"
-                alt="Alert"
-              />
-              <img src={item.frontmatter.image} />
+              <img src={item.frontmatter.image} class="border-base-content bg-base-300 rounded-lg border border-opacity-5" alt={item.frontmatter.title} />
             </figure>
             <div class="card-body">
               <h2 class="card-title">{item.frontmatter.title}</h2>
