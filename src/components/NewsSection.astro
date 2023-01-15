@@ -4,6 +4,8 @@ const news = await Astro.glob("../pages/news/*.md");
 news.sort(
   (a, b) => Date.parse(b.frontmatter.date) - Date.parse(a.frontmatter.date)
 );
+
+const latestNews= news.slice(0, 5);
 ---
 
 <div class="hero h-full bg-base-200">
@@ -27,6 +29,7 @@ news.sort(
                 <div class=" divider"></div>
               ))
             }
+            <li><a href="/news" class="link link-hover">すべてのお知らせ</a></li>
           </ul>
         </div>
       </div>

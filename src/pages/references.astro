@@ -18,15 +18,15 @@ const path = [
   <BreadCrumbs path={path} />
 
   <div class="flex flex-col md:flex-row ">
-    <aside class="hidden md:block h-screen sticky top-0 w-full">
-      <ul class="menu bg-base-200 w-56 rounded-md ">
+    <aside class="hidden md:block h-screen sticky top-0 w-1/3">
+      <ul class="menu bg-base-200 w-full rounded-md ">
         <li><a href="#yamada">山田太造</a></li>
         <li><a href="#nakamura">中村覚</a></li>
         <li><a href="#liu">劉冠偉</a></li>
       </ul>
     </aside>
 
-    <div class="block">
+    <div class="block md:px-10">
       <PeopleCard name="山田 太造" position="准教授" researchmap_account="j618" id="yamada" />
       <PaperList researchmap_account="j618" />
 
