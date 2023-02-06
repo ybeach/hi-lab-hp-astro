@@ -10,7 +10,7 @@ const date = new Date(frontmatter.date).toLocaleDateString();
   <article class="prose lg:prose-xl py-7">
     <p class="text-base-content text-right">更新：{date}</p>
     <h1>{frontmatter.title}</h1>
-    <p>{frontmatter.description}</p>
+    <!-- <p>{frontmatter.description}</p> -->
     <slot />
   </article>
 </CategoryLayout>
