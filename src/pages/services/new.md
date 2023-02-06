@@ -1,7 +1,7 @@
 ---
 layout: ../../layouts/PageLayout.astro
 title: new
-image: ./images/no_image.png
+image: /images/no_image.png
 date: 2023-01-12
 ---
 new
