@@ -3,6 +3,8 @@ layout: ../../layouts/PageLayout.astro
 title: 花押データセット
 image: /images/screenshot_kao.jpg
 date: 2023-01-12
+description: 
+draft: true
 ---
 ## 花押データセット
 

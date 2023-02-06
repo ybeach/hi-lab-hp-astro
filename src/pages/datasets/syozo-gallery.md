@@ -3,6 +3,8 @@ layout: ../../layouts/PageLayout.astro
 title: 所蔵史料画像ギャラリー
 image: /images/no_image.png
 date: 2023-01-12
+description: 
+draft: true
 ---
 ## 所蔵史料画像ギャラリー
 
