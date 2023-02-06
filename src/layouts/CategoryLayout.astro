@@ -78,13 +78,13 @@ if (title != currentCategoryName) {
     <h2 class="text-primary text-4xl md:text-6xl">{currentCategoryName}</h2>
   </div>
 
-  <div class="flex flex-row">
-    <label for="side-drawer" class="btn btn-primary drawer-button lg:hidden"
-      >ページ内リスト</label
-    >
+  <div class="flex flex-col">
     <div class="bg-base-100 w-full px-4 py-2">
       <BreadCrumbs path={path} />
     </div>
+    <label for="side-drawer" class="btn btn-outline btn-primary drawer-button lg:hidden mx-4"
+      >{currentCategoryName}リスト {`>>`} </label
+    >
   </div>
 
   <div class="drawer drawer-mobile pt-4 pb-16 h-max">
