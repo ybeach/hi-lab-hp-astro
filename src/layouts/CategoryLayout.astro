@@ -64,6 +64,13 @@ const path = [
     url: "/" + currentCategory,
   },
 ];
+
+if (title != currentCategoryName) {
+  path.push({
+    name: title,
+    url: "#",
+  });
+}
 ---
 
 <BaseLayout title={title}>
@@ -96,7 +103,8 @@ const path = [
           <a
             href={"/" + currentCategory}
             class={title == currentCategoryName ? "text-white bg-primary" : ""}
-            >すべて</a>
+            >すべて</a
+          >
         </li>
         {
           fileList.map((item) => (
