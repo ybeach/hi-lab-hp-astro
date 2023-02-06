@@ -43,6 +43,9 @@ switch (currentCategory) {
     break;
 }
 
+// ドラフトを除外
+fileList = fileList.filter((post) => !post.frontmatter.draft);
+
 const path = [
   {
     name: "ホーム",

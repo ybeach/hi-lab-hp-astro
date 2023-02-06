@@ -1,27 +1,65 @@
 ---
 import CategoryLayout from "../layouts/CategoryLayout.astro";
 
-const {title, all}=Astro.props
+const {title}=Astro.props
+
+const currentPath = Astro.url.pathname;
+const currentCategory = currentPath.split("/")[1];
+const currentFile = currentPath.split("/")[2];
+
+// cause stupid vite
+// https://stackoverflow.com/questions/72077023/import-meta-glob-can-only-accept-string-literals
+let fileList;
+let currentCategoryName;
+switch (currentCategory) {
+  case "news":
+    fileList = await Astro.glob("../pages/news/*.md");
+    currentCategoryName = "お知らせ";
+    break;
+  case "datasets":
+    fileList = await Astro.glob("../pages/datasets/*.md");
+    currentCategoryName = "データセット";
+    break;
+  case "services":
+    fileList = await Astro.glob("../pages/services/*.md");
+    currentCategoryName = "サービス";
+    break;
+  case "utils":
+    fileList = await Astro.glob("../pages/utils/*.md");
+    currentCategoryName = "ユーティリティー";
+    break;
+  case "usages":
+    fileList = await Astro.glob("../pages/usages/*.md");
+    currentCategoryName = "利用例";
+    break;
+  case "references":
+    fileList = await Astro.glob("../pages/usages/*.md");
+    currentCategoryName = "業績（論文）一覧";
+    break;
+}
+
+// ドラフトを除外
+fileList = fileList.filter((post) => !post.frontmatter.draft);
 ---
 
 <CategoryLayout title={title}>
   <div class="px-6 xl:pr-2 pb-16 flex flex-col gap-6">
     <div class="prose max-w-4xl flex-grow">
       <h2>すべての{title}</h2>
-      <p>{all.length} {title}</p>
+      <p>{fileList.length} {title}</p>
     </div>
     <div
       class="not-prose grid grid-cols-1 gap-x-6 gap-y-12 sm:grid-cols-2 lg:grid-cols-3"
     >
       {
-        all.map((item) => (
+        fileList.map((item) => (
           <a href={item.url} class="card card-compact hover:bg-base-200 transition-all duration-200 hover:-translate-y-1">
             <figure class="px-4 pt-4">
               <img src={item.frontmatter.image} class="border-base-content bg-base-300 rounded-lg border border-opacity-5" alt={item.frontmatter.title} />
             </figure>
             <div class="card-body">
               <h2 class="card-title">{item.frontmatter.title}</h2>
-            
+              <p>If a dog chews shoes whose shoes does he choose?</p>
             </div>
           </a>
         ))

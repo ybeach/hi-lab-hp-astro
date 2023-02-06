@@ -1,8 +1,12 @@
 ---
 import CategoryLayout from "./CategoryLayout.astro";
 
-const { frontmatter  } = Astro.props;
+const { frontmatter } = Astro.props;
 ---
+
 <CategoryLayout title={frontmatter.title}>
-  <slot />
+  <article class="prose lg:prose-xl py-7">
+    <h1>{frontmatter.title}</h1>
+    <slot />
+  </article>
 </CategoryLayout>
