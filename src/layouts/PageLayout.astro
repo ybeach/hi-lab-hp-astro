@@ -2,11 +2,15 @@
 import CategoryLayout from "./CategoryLayout.astro";
 
 const { frontmatter } = Astro.props;
+
+const date = new Date(frontmatter.date).toLocaleDateString();
 ---
 
 <CategoryLayout title={frontmatter.title}>
   <article class="prose lg:prose-xl py-7">
+    <p class="text-base-content text-right">更新：{date}</p>
     <h1>{frontmatter.title}</h1>
+    <p>{frontmatter.description}</p>
     <slot />
   </article>
 </CategoryLayout>

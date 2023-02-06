@@ -46,6 +46,14 @@ switch (currentCategory) {
 // ドラフトを除外
 fileList = fileList.filter((post) => !post.frontmatter.draft);
 
+// 日付順
+fileList.sort((a, b) => {
+  return (
+    new Date(b.frontmatter.date).getTime() -
+    new Date(a.frontmatter.date).getTime()
+  );
+});
+
 const path = [
   {
     name: "ホーム",
@@ -72,16 +80,16 @@ const path = [
     </div>
   </div>
 
-  <div class="drawer drawer-mobile pt-4 pb-16">
+  <div class="drawer drawer-mobile pt-4 pb-16 h-max">
     <input id="side-drawer" type="checkbox" class="drawer-toggle" />
 
-    <div class="drawer-content flex flex-col">
+    <div class="drawer-content h-max">
       <div class="px-6">
         <slot />
       </div>
     </div>
 
-    <div class="drawer-side">
+    <div class="drawer-side min-h-screen">
       <label for="side-drawer" class="drawer-overlay"></label>
       <ul class="menu p-4 w-80 gap-2 bg-base-200 text-base-content">
         <li>
