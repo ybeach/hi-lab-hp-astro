@@ -20,6 +20,10 @@ PDF: <https://www.hi.u-tokyo.ac.jp/assets/pdf/cmdjm-body.pdf> (6.2MB)
 クリエイティブ・コモンズ　表示 4.0 国際 (CC BY 4.0)
 <https://creativecommons.org/licenses/by/4.0/deed.ja>
 
+### 件数
+
+13,578件
+
 ### 関連リンク
 
 『日本中世気象災害史年表稿』ビューア
