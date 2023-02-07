@@ -1,6 +1,6 @@
 ---
 layout: ../../layouts/PageLayout.astro
-title: 災害データセット
+title: 『日本中世気象災害史年表稿』データセット
 image: /images/no_image.png
 date: 2023-01-12
 ---
