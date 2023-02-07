@@ -4,6 +4,7 @@ title: くずし字データセット
 image: /images/dataset.png
 date: 2023-01-12
 description: 東京大学史料編纂所が公開する資料画像データの中から、くずし字画像を切り出したデータセットを公開します。
+draft: false
 ---
 
 [![License: CC0](https://img.shields.io/badge/License-CC0-blue.svg)](https://creativecommons.org/publicdomain/zero/1.0/)  

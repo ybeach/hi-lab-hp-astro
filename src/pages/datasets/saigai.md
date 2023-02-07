@@ -3,6 +3,8 @@ layout: ../../layouts/PageLayout.astro
 title: 『日本中世気象災害史年表稿』データセット
 image: /images/dataset.png
 date: 2023-01-12
+description: 藤木久志 編『日本中世気象災害史年表稿』（高志書院, ISBN978-4-86215-031-8）に関するデータセットを公開しています。
+draft: false
 ---
 ### 概要
 
@@ -10,7 +12,8 @@ date: 2023-01-12
 
 ### URL
 
-CSV: <https://www.hi.u-tokyo.ac.jp/assets/csv/cmdjm-latest.csv>  (2.2MB, UTF-8, CRLF) <br />
+CSV: <https://www.hi.u-tokyo.ac.jp/assets/csv/cmdjm-latest.csv>  (2.2MB, UTF-8, CRLF) 
+
 PDF: <https://www.hi.u-tokyo.ac.jp/assets/pdf/cmdjm-body.pdf> (6.2MB)
 
 詳細は<https://www.hi.u-tokyo.ac.jp/collection/digitalgallery/disaster_events/about>を参照してください。
